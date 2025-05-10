@@ -11,6 +11,10 @@ os.makedirs(TEMP_FOLDER, exist_ok=True)
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return "RAG API is running! Use /query or /embed endpoints."
+
 @app.route('/embed', methods=['POST'])
 def route_embed():
     if 'file' not in request.files:
